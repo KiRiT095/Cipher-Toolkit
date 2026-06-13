@@ -138,6 +138,8 @@ To design a menu-driven Python project that performs cipher encryption, cipher d
    - Moderate Password
    - Strong Password
 
+#Flowchart
+![Cipher Toolkit Flowchart](Resources/Flowchart.png)
 ---
 
 ## Notes
