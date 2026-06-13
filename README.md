@@ -25,6 +25,7 @@ A Python-based project exploring classical cryptography concepts and data repres
 * SHA-256 Password Hashing
 * Password Strength Analyzer
 * Improved User Interface
+* DECRYPTION FOR ALL
 
 ## Technologies Used
 
