@@ -1,4 +1,4 @@
-# Cipher Toolkit (Pre-Alpha 0.1)
+# Cipher Toolkit (Pre-Alpha 0.2)
 
 A Python-based project exploring classical cryptography concepts and data representations as part of my cybersecurity learning journey.
 
@@ -11,6 +11,7 @@ A Python-based project exploring classical cryptography concepts and data repres
   * Hexadecimal
 * Input validation using exception handling
 * Interactive command-line interface
+* Caesar Cipher Encryption
 
 ## Current Status
 
@@ -18,7 +19,6 @@ A Python-based project exploring classical cryptography concepts and data repres
 
 ## Planned Features
 
-* Caesar Cipher
 * Vigenère Cipher
 * Rail Fence Cipher
 * Playfair Cipher
