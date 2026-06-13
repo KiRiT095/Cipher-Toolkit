@@ -1,31 +1,69 @@
 # Cipher Toolkit (Pre-Alpha 0.2)
 
-A Python-based project exploring classical cryptography concepts and data representations as part of my cybersecurity learning journey.
+A Python-based project exploring classical cryptography concepts, encoding techniques, and cybersecurity fundamentals as part of my cybersecurity learning journey.
 
 ## Current Features
+
+### Encoding Utilities
 
 * Convert decimal numbers to:
 
   * Binary
   * Octal
   * Hexadecimal
-* Input validation using exception handling
-* Interactive command-line interface
+
+### Cipher Encryption
+
 * Caesar Cipher Encryption
+* Support for uppercase letters, lowercase letters, digits, and special characters
+
+### Program Features
+
+* Interactive command-line interface
+* Input validation using exception handling (`try-except`)
+* Menu-driven toolkit architecture
 
 ## Current Status
 
- This project is currently in **Alpha** and is actively being developed. New cryptographic algorithms and security-related utilities will be added as I continue learning Python and cybersecurity concepts.
+🚧 This project is currently in **Pre-Alpha 0.2** and is actively being developed. New cryptographic algorithms, decryption tools, and security-related utilities will be added as I continue learning Python and cybersecurity concepts.
 
 ## Planned Features
+
+### Encryption
 
 * Vigenère Cipher
 * Rail Fence Cipher
 * Playfair Cipher
-* SHA-256 Password Hashing
+
+### Decryption
+
+* Caesar Cipher Decryption
+* Decryption support for all implemented ciphers
+* Automatic multi-cipher decryption mode (experimental)
+
+### Security Utilities
+
 * Password Strength Analyzer
+* SHA-256 Password Hashing
 * Improved User Interface
-* DECRYPTION FOR ALL
+
+## Project Workflow
+
+The toolkit is designed to allow users to optionally apply an **encoding layer** before encryption.
+
+Example:
+
+```
+Plaintext
+    ↓
+Binary / Octal / Hexadecimal Encoding (Optional)
+    ↓
+Cipher Encryption
+    ↓
+Encrypted Output
+```
+
+This layered approach helps demonstrate the differences between **encoding** and **encryption** while exploring classical cryptographic techniques.
 
 ## Technologies Used
 
@@ -38,11 +76,20 @@ This project serves as a hands-on approach to:
 * Strengthening Python programming skills
 * Understanding classical cryptographic techniques
 * Exploring secure coding practices
+* Learning fundamental cybersecurity concepts
 * Building practical cybersecurity-related tools
 
 ## Disclaimer
 
-The current implementation focuses on **number base conversion** and educational exploration. Binary, octal, and hexadecimal representations are **not encryption methods**. Future updates will introduce actual cryptographic algorithms and security-focused functionalities.
+This project is intended **for educational purposes only**.
+
+Binary, octal, and hexadecimal conversions are **encoding methods**, not encryption techniques, and should not be considered secure methods of protecting sensitive information.
+
+The cryptographic implementations in this project focus on learning classical cryptography concepts and are **not suitable for real-world security applications**.
+
+## Documentation
+
+Algorithms and flowcharts used in the development process are available in the `Algorithms/` directory.
 
 ## Author
 
