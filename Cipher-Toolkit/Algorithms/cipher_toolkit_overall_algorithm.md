@@ -138,11 +138,15 @@ To design a menu-driven Python project that performs cipher encryption, cipher d
    - Moderate Password
    - Strong Password
 
-#Flowchart
-![Cipher Toolkit Flowchart](Resources/Flowchart.png)
+
 ---
 
 ## Notes
 - Special characters and digits are left unchanged in Caesar Cipher.
 - The same menu structure can be reused for encryption and decryption.
 - The project can later be expanded with more ciphers and better error handling.
+
+
+## Overall Project Flowchart
+
+![Cipher Toolkit Flowchart](Resources/Flowchart.png)
