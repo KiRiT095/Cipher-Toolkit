@@ -3,18 +3,20 @@ while True:
     Service = input(
         "Welcome to Cipher Toolkit!\n\n"
         "Please select the service you wish to use:\n"
-        "1. Cipher Encryption\n"
-        "2. Decimal Conversion\n"
-        "3. Password Strength Checker\n--> "
+        "1. Encryption\n"
+        "2. Decryption\n"
+        "3. Decimal Conversion\n"
+        "4. Password Strength Checker\n--> "
     ).lower()
 
     if Service in [
-        "cipher encryption",
+        "encryption",
+        "decryption",
         "decimal conversion",
         "password strength checker"
     ]:
 
-        # DECIMAL CONVERSION
+# DECIMAL CONVERSION-----------------------------------------------------------------------------------------------
         if Service == "decimal conversion":
 
             while True:
@@ -39,33 +41,41 @@ while True:
 
                 if encryption == "hexadecimal":
                     print("Hexadecimal:", hex(password)[2:])
-                    break
+                    exit()
 
                 elif encryption == "binary":
                     print("Binary:", bin(password)[2:])
-                    break
+                    exit()
 
                 elif encryption == "octal":
                     print("Octal:", oct(password)[2:])
-                    break
+                    exit()
 
                 else:
                     print("Invalid conversion type")
 
-        # CIPHER ENCRYPTION
-        elif Service == "cipher encryption":
+#---------------------------------------------------------------------------------------------------
 
+        # CIPHER ENCRYPTION
+        elif Service == "encryption":
+            
             kind = input(
                 "\nEnter the kind of cipher encryption "
                 "you wish to test:\n"
-                "1. Caesar Cipher\n"
-                "2. Vigenère Cipher\n"
-                "3. Rail Fence Cipher\n"
-                "4. Play Fair Cipher\n--> "
+                "1. Caesar Cipher (Numeric Key)\n"
+                "2. Vigenère Cipher (Alphabetic Key)\n"
+                "3. Rail Fence Cipher (Numeric Key)\n"
+                "4. Play Fair Cipher (Alphabetic Key)\n--> "
             ).lower()
+#-----------------------------------------------------------------------------------------------------
 
-            # CAESAR CIPHER
+# CAESAR CIPHER Encryption---------------------------------------------------------------------------
+          
             if kind == "caesar cipher":
+                
+                encode=input(
+                    "\nWould you like to encode your password after applying cipher? (Y/N) : "
+                    ).lower()
 
                 result = ""
 
@@ -86,37 +96,95 @@ while True:
                     except ValueError:
                         print("Please enter a numeric key.")
 
+
+# CIPHER 
+                result = ""
+
                 for pas in password:
-
                     if pas.islower():
-
                         x = ord(pas) - ord('a')
-
-                        c = chr(
-                            ((x + key) % 26)
-                            + ord('a')
-                        )
+                        c = chr(((x + key) % 26) + ord('a'))
 
                     elif pas.isupper():
-
                         x = ord(pas) - ord('A')
-
-                        c = chr(
-                            ((x + key) % 26)
-                            + ord('A')
-                        )
+                        c = chr(((x + key) % 26) + ord('A'))
 
                     else:
-
                         c = pas
 
                     result += c
 
-                print("\nEncrypted text:", result)
-                break
+
+# ENCODE
+                if encode == "y":
+                    encr = input(
+                        "Enter the kind of Encoding "
+                        "(Binary, Octal, Hexadecimal):\n\t"
+                    ).lower()
+
+                    e = ""
+
+                    if encr == "hexadecimal":
+                        for enc in result:
+                            e += hex(ord(enc))[2:] + " "
+                        print("Hexadecimal:", e.strip())
+                        exit()
+
+                    elif encr == "binary":
+                        for enc in result:
+                            e += bin(ord(enc))[2:] + " "
+                        print("Binary:", e.strip())
+                        exit()
+
+                    elif encr == "octal":
+                        for enc in result:
+                            e += oct(ord(enc))[2:] + " "
+                        print("Octal:", e.strip())
+                        exit()
+
+                    else:
+                        print("Invalid conversion type")
+
+                else :
+                  print("Encrypted text:", result)
+                exit()
 
             else:
-                print("This cipher has not been implemented yet.")
+              print("This cipher has not been implemented yet.\n")
+#--------------------------------------------------------------------------------
 
+#Decryption----------------------------------------------------------------------
+        elif Service=="decryption":
+            encrypt=input(
+                "Please enter the encrypted text : "
+                )
+            key=input(
+                "Please enter the key if available (If not available press enter for brute force) : "
+                      )
+            
+#decryption brute force-----------------------------------------------------------
+            if key=="" :
+                kind=input(
+                    "Please enter the type of cipher you wish to apply brute force uppon \n" \
+                    "1)Caesar Cipher\n" \
+                    "2)Rail Fence Cipher\n" \
+                    "--> "
+                ).lower()
+
+                if kind=="caesar cipher":
+                    def caesarcipherdecryption():
+                        p=0
+                        for base in [2, 8, 10, 16]:
+                            try:
+                                p=(int(encrypt, base))
+                            except:
+                                pass
+                            
+                        print(p) 
+
+                    a=caesarcipherdecryption (p)
+                    print(a)
+
+#-----------------------------------------------------------------------------------------------
     else:
         print("Invalid service. Please try again.")
