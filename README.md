@@ -1,4 +1,4 @@
-# Cipher Toolkit (Pre-Alpha 0.2)
+# Cipher Toolkit (Pre-Alpha 0.3)
 
 A Python-based project exploring classical cryptography concepts, encoding techniques, and cybersecurity fundamentals as part of my cybersecurity learning journey.
 
@@ -16,6 +16,7 @@ A Python-based project exploring classical cryptography concepts, encoding techn
 
 * Caesar Cipher Encryption
 * Support for uppercase letters, lowercase letters, digits, and special characters
+* Rail Fence Cipher Encryption
 
 ### Program Features
 
@@ -25,14 +26,13 @@ A Python-based project exploring classical cryptography concepts, encoding techn
 
 ## Current Status
 
-🚧 This project is currently in **Pre-Alpha 0.2** and is actively being developed. New cryptographic algorithms, decryption tools, and security-related utilities will be added as I continue learning Python and cybersecurity concepts.
+🚧 This project is currently in **Pre-Alpha 0.3** and is actively being developed. New cryptographic algorithms, decryption tools, and security-related utilities will be added as I continue learning Python and cybersecurity concepts.
 
 ## Planned Features
 
 ### Encryption
 
 * Vigenère Cipher
-* Rail Fence Cipher
 * Playfair Cipher
 
 ### Decryption
