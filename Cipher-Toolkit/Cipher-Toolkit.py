@@ -1,5 +1,6 @@
 #functions defined-------------------------------------
 
+#encoder defined-----------
 def encoder(result):
         encr = input(
             "Enter the kind of Encoding "
@@ -28,6 +29,37 @@ def encoder(result):
 
         else:
             print("Invalid conversion type")
+
+#Rail fence defined--------------
+def rail_fence_encrypt(password, key):
+
+                        if key <= 1 or key >= len(password):
+                            return password
+
+                        rails = [""] * key
+
+                        k = 0
+                        direction = 1
+
+                        for j in password:
+
+                            rails[k] += j
+
+                            if k == key - 1:
+                                direction = -1
+
+                            elif k == 0:
+                                direction = 1
+
+                            k += direction
+
+                        result = ""
+
+                        for rail in rails:
+                            result += rail
+
+                        return result
+
 
 #Code--------------------------------------------------------------
 
@@ -167,35 +199,6 @@ while True:
             if kind=="rail fence cipher":
                     enc=input("Would you like to encode the password after encryption? (y/n)\n--> ").lower()
                     
-                    def rail_fence_encrypt(password, key):
-
-                        if key <= 1 or key >= len(password):
-                            return password
-
-                        rails = [""] * key
-
-                        k = 0
-                        direction = 1
-
-                        for j in password:
-
-                            rails[k] += j
-
-                            if k == key - 1:
-                                direction = -1
-
-                            elif k == 0:
-                                direction = 1
-
-                            k += direction
-
-                        result = ""
-
-                        for rail in rails:
-                            result += rail
-
-                        return result
-
                     password=input("Please enter the password to encrypt : ")
 
                     while True:
