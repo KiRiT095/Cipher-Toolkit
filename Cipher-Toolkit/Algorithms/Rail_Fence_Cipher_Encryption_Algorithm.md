@@ -95,3 +95,8 @@ Where `n` is the length of the plaintext.
 O(n)
 
 Additional space is required to store the rails during encryption.
+
+## Flowchart
+
+![Rail Fence Cipher Flowchart](../Resources/Railfence.png)
+
