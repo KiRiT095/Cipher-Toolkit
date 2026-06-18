@@ -1,3 +1,36 @@
+#functions defined-------------------------------------
+
+def encoder(result):
+        encr = input(
+            "Enter the kind of Encoding "
+            "(Binary, Octal, Hexadecimal):\n\t"
+        ).lower()
+
+        e = ""
+
+        if encr == "hexadecimal":
+            for enc in result:
+                e += hex(ord(enc))[2:] + " "
+            print("Hexadecimal:", e.strip())
+            exit()
+
+        elif encr == "binary":
+            for enc in result:
+                e += bin(ord(enc))[2:] + " "
+            print("Binary:", e.strip())
+            exit()
+
+        elif encr == "octal":
+            for enc in result:
+                e += oct(ord(enc))[2:] + " "
+            print("Octal:", e.strip())
+            exit()
+
+        else:
+            print("Invalid conversion type")
+
+#Code--------------------------------------------------------------
+
 while True:
 
     Service = input(
@@ -116,42 +149,80 @@ while True:
 
 
 # ENCODE
+
                 if encode == "y":
-                    encr = input(
-                        "Enter the kind of Encoding "
-                        "(Binary, Octal, Hexadecimal):\n\t"
-                    ).lower()
-
-                    e = ""
-
-                    if encr == "hexadecimal":
-                        for enc in result:
-                            e += hex(ord(enc))[2:] + " "
-                        print("Hexadecimal:", e.strip())
-                        exit()
-
-                    elif encr == "binary":
-                        for enc in result:
-                            e += bin(ord(enc))[2:] + " "
-                        print("Binary:", e.strip())
-                        exit()
-
-                    elif encr == "octal":
-                        for enc in result:
-                            e += oct(ord(enc))[2:] + " "
-                        print("Octal:", e.strip())
-                        exit()
-
-                    else:
-                        print("Invalid conversion type")
+                    encoder(result)
 
                 else :
                   print("Encrypted text:", result)
                 exit()
 
-            else:
-              print("This cipher has not been implemented yet.\n")
+        
 #--------------------------------------------------------------------------------
+
+
+
+#rail fence cipher---------------------------------------------------------------
+
+            if kind=="rail fence cipher":
+                    enc=input("Would you like to encode the password after encryption? (y/n)\n--> ").lower()
+                    
+                    def rail_fence_encrypt(password, key):
+
+                        if key <= 1 or key >= len(password):
+                            return password
+
+                        rails = [""] * key
+
+                        k = 0
+                        direction = 1
+
+                        for j in password:
+
+                            rails[k] += j
+
+                            if k == key - 1:
+                                direction = -1
+
+                            elif k == 0:
+                                direction = 1
+
+                            k += direction
+
+                        result = ""
+
+                        for rail in rails:
+                            result += rail
+
+                        return result
+
+                    password=input("Please enter the password to encrypt : ")
+
+                    while True:
+                        try:
+                            key = int(
+                                input(
+                                    "Please enter the no. of rails for encryption "
+                                    "(numeric value only): "
+                                )
+                            )
+                            break
+
+                        except ValueError:
+                            print("Please enter a numeric key.")
+
+                            
+                    encrypted = rail_fence_encrypt(password, key)
+
+
+
+                    if enc=="y":
+                        encoded= encoder(encrypted)
+                        print ("Encoded and encrypted rail fence cipher would be : ", encoded)
+
+                    else :
+                        print("Encrypted : ", encrypted)
+
 
 #Decryption----------------------------------------------------------------------
         elif Service=="decryption":
