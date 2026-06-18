@@ -26,7 +26,7 @@ A Python-based project exploring classical cryptography concepts, encoding techn
 
 ## Current Status
 
-🚧 This project is currently in **Pre-Alpha 0.3** and is actively being developed. New cryptographic algorithms, decryption tools, and security-related utilities will be added as I continue learning Python and cybersecurity concepts.
+This project is currently in **Pre-Alpha 0.3** and is actively being developed. New cryptographic algorithms, decryption tools, and security-related utilities will be added as I continue learning Python and cybersecurity concepts.
 
 ## Planned Features
 
