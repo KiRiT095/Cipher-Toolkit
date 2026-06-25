@@ -1,36 +1,61 @@
 #functions defined-------------------------------------
 
-#encoder defined-----------
 def encoder(result):
-        encr = input(
-            "Enter the kind of Encoding "
-            "(Binary, Octal, Hexadecimal):\n\t"
-        ).lower()
 
-        e = ""
+    encr = input(
+        "Enter the kind of Encoding "
+        "(Binary, Octal, Hexadecimal):\n\t"
+    ).lower()
 
-        if encr == "hexadecimal":
-            for enc in result:
-                e += hex(ord(enc))[2:] + " "
-            print("Hexadecimal:", e.strip())
-            exit()
+    e = ""
 
-        elif encr == "binary":
-            for enc in result:
-                e += bin(ord(enc))[2:] + " "
-            print("Binary:", e.strip())
-            exit()
+    if encr == "hexadecimal":
 
-        elif encr == "octal":
-            for enc in result:
-                e += oct(ord(enc))[2:] + " "
-            print("Octal:", e.strip())
-            exit()
+        for enc in result:
+            e += hex(ord(enc))[2:] + " "
+
+        return "Hexadecimal: " + e.strip()
+
+    elif encr == "binary":
+
+        for enc in result:
+            e += bin(ord(enc))[2:] + " "
+
+        return "Binary: " + e.strip()
+
+    elif encr == "octal":
+
+        for enc in result:
+            e += oct(ord(enc))[2:] + " "
+
+        return "Octal: " + e.strip()
+
+    else:
+
+        return "Invalid conversion type"
+
+#-------------------------------------------------------
+#caesar cipher defined
+
+def caesar_cipher_encryption(password, key):
+    result = ""
+
+    for pas in password:
+        if pas.islower():
+            x = ord(pas) - ord('a')
+            c = chr(((x + key) % 26) + ord('a'))
+
+        elif pas.isupper():
+            x = ord(pas) - ord('A')
+            c = chr(((x + key) % 26) + ord('A'))
 
         else:
-            print("Invalid conversion type")
+            c = pas
 
-#Rail fence defined--------------
+        result += c
+    return result
+
+#Rail fence defined--------
 def rail_fence_encrypt(password, key):
 
                         if key <= 1 or key >= len(password):
@@ -60,6 +85,37 @@ def rail_fence_encrypt(password, key):
 
                         return result
 
+#decoder------------------------------------------------------------
+
+def decoder(encoded) :
+
+    decoded=bin(encoded)
+
+    return decoded
+
+#Caesar cipher decryption------------------------------------------
+
+def caesar_cipher_decryption(password, key):
+    result = ""
+
+    key = key % 26
+
+    for pas in password:
+        if pas.islower():
+            x = ord(pas) - ord('a')
+            c = chr(((x - key) % 26) + ord('a'))
+
+        elif pas.isupper():
+            x = ord(pas) - ord('A')
+            c = chr(((x - key) % 26) + ord('A'))
+
+        else:
+            c = pas
+
+        result += c
+
+    return result
+    
 
 #Code--------------------------------------------------------------
 
@@ -137,17 +193,15 @@ while True:
 # CAESAR CIPHER Encryption---------------------------------------------------------------------------
           
             if kind == "caesar cipher":
-                
+
                 encode=input(
                     "\nWould you like to encode your password after applying cipher? (Y/N) : "
                     ).lower()
 
-                result = ""
-
                 password = input(
                     "\nPlease enter the text you wish to encrypt: "
                 )
-
+ 
                 while True:
                     try:
                         key = int(
@@ -163,31 +217,17 @@ while True:
 
 
 # CIPHER 
-                result = ""
-
-                for pas in password:
-                    if pas.islower():
-                        x = ord(pas) - ord('a')
-                        c = chr(((x + key) % 26) + ord('a'))
-
-                    elif pas.isupper():
-                        x = ord(pas) - ord('A')
-                        c = chr(((x + key) % 26) + ord('A'))
-
-                    else:
-                        c = pas
-
-                    result += c
+                res=caesar_cipher_encryption(password, key)
 
 
 # ENCODE
 
                 if encode == "y":
-                    encoder(result)
+                    print (encoder(res))
 
                 else :
-                  print("Encrypted text:", result)
-                exit()
+                  print("Encrypted text:", res)
+                break
 
         
 #--------------------------------------------------------------------------------
@@ -198,7 +238,7 @@ while True:
 
             if kind=="rail fence cipher":
                     enc=input("Would you like to encode the password after encryption? (y/n)\n--> ").lower()
-                    
+
                     password=input("Please enter the password to encrypt : ")
 
                     while True:
@@ -227,38 +267,5 @@ while True:
                         print("Encrypted : ", encrypted)
 
 
-#Decryption----------------------------------------------------------------------
-        elif Service=="decryption":
-            encrypt=input(
-                "Please enter the encrypted text : "
-                )
-            key=input(
-                "Please enter the key if available (If not available press enter for brute force) : "
-                      )
-            
-#decryption brute force-----------------------------------------------------------
-            if key=="" :
-                kind=input(
-                    "Please enter the type of cipher you wish to apply brute force uppon \n" \
-                    "1)Caesar Cipher\n" \
-                    "2)Rail Fence Cipher\n" \
-                    "--> "
-                ).lower()
-
-                if kind=="caesar cipher":
-                    def caesarcipherdecryption():
-                        p=0
-                        for base in [2, 8, 10, 16]:
-                            try:
-                                p=(int(encrypt, base))
-                            except:
-                                pass
-                            
-                        print(p) 
-
-                    a=caesarcipherdecryption (p)
-                    print(a)
-
-#-----------------------------------------------------------------------------------------------
     else:
         print("Invalid service. Please try again.")
